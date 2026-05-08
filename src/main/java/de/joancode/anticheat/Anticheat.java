@@ -92,7 +92,7 @@ public class Anticheat implements ModInitializer {
 				if (player.isDisconnected()) return; // Already gone
 				var mods = payload.installedMods();
 				if (mods == null) mods = Collections.emptyList();
-				LOGGER.info("[AntiCheat] Verification response from {}: {} mods {}", player.getName().getString(), mods.size(), mods.toList());
+				LOGGER.info("[AntiCheat] Verification response from {}: {} mods {}", player.getName().getString(), mods.size(), mods);
 				var offending = mods.stream().filter(BANNED_MODS::contains).toList();
 				if (!offending.isEmpty()) {
 					LOGGER.warn("Player {} has banned mods: {}", player.getName().getString(), offending);
